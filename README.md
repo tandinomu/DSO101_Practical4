@@ -158,3 +158,26 @@ your-project/
 
 ---
 **Need help?** Check Jenkins console output for detailed error messages.
+
+# Challenge: Troubleshooting
+
+## Error 1: Node.js Tool Not Found
+**Console Output:**
+
+![e1](./assets/challenge.png)
+
+**Fix this error.**
+
+- Updated to the matched available version.
+
+![rb](./assets/e1.png)
+
+## Error 2: Script Path Issues
+
+![e2](./assets/e2.png)
+
+**Console Output:**
+![co2](./assets/co2.png)
+
+**Made changes in the pipeline script.**
+![e2](./assets/e2.png)
