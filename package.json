@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "build": "npm run build:prod",
+    "build:prod": "webpack --mode production"
+  }
+}
