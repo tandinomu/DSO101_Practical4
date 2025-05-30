@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     tools {
-        nodejs 'NodeJS 24.2.0'  // Updated to match available version
+        nodejs 'NodeJS 24.0.2'  // Updated to match available version
     }
     
     stages {
