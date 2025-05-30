@@ -1,8 +1,8 @@
 # Jenkins CI/CD Pipeline Setup
 
-A simple guide to set up Jenkins for your Node.js project with automated testing and deployment.
+## Objeactive
 
-## Quick Setup
+To implement Continuous Integration and Delivery (CI/CD) using Jenkins by setting up an automated pipeline that builds, tests, and deploys Node.js applications from Git repositories,
 
 ### Prerequisites
 - Jenkins server running
@@ -37,127 +37,24 @@ A simple guide to set up Jenkins for your Node.js project with automated testing
    - Script Path: `Jenkinsfile`
 
 ### Step 4: Create Jenkinsfile
-Create `Jenkinsfile` in your project root:
+Created `Jenkinsfile` in your project root:
+![jf](./assets/jenkinsfile.png)
 
-```groovy
-pipeline {
-    agent any
-    
-    tools {
-        nodejs 'NodeJS-20.x'
-    }
-    
-    stages {
-        stage('Install') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                sh 'npm test'
-            }
-        }
-        
-        stage('Build') {
-            steps {
-                sh 'npm run build || echo "No build script"'
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                sh 'echo "Deploying to staging..."'
-            }
-        }
-    }
-    
-    post {
-        always {
-            cleanWs()
-        }
-    }
-}
-```
+### Step 5: Configured Multi-Phase Pipeline: Jenkinsfile
 
-### Step 5: Update package.json
-Make sure you have these scripts:
+Source Control: Git repository code fetching
+Package Management: npm dependency setup
+Quality Assurance: Automated test execution with coverage analysis
+Compilation: Application assembly process
+Storage: Build artifact preservation
+Delivery: Staging environment deployment mock
 
-```json
-{
-  "scripts": {
-    "test": "jest",
-    "build": "your-build-command",
-    "lint": "eslint ."
-  }
-}
-```
 
 ### Step 6: Run Pipeline
-1. Push Jenkinsfile to your Git repo
-2. Click **Build Now** in Jenkins
-3. Watch the pipeline run!
+1. Push Jenkinsfile to Git repo
+2. Ran the pipeline.
 
-## Advanced Features
-
-### Test Reporting
-Add to your Jenkinsfile for test reports:
-
-```groovy
-stage('Test') {
-    steps {
-        sh 'npm install --save-dev jest-junit'
-        sh 'npm test -- --ci --reporters=jest-junit'
-    }
-    post {
-        always {
-            junit 'junit.xml'
-        }
-    }
-}
-```
-
-### Automatic Builds
-Set up GitHub webhook:
-1. GitHub repo → Settings → Webhooks
-2. Add webhook: `http://your-jenkins-server/github-webhook/`
-3. Jenkins job → Build Triggers → "GitHub hook trigger"
-
-## Troubleshooting
-
-| Problem | Solution |
-|---------|----------|
-| "node not found" | Check NodeJS tool name matches exactly |
-| "npm test fails" | Ensure test script exists in package.json |
-| "Pipeline not triggered" | Verify webhook URL and GitHub settings |
-| "Permission denied" | Check Jenkins file permissions |
-
-## File Structure
-```
-your-project/
-├── Jenkinsfile          ← Create this file
-├── package.json
-├── src/
-└── tests/
-```
-
-## What Happens When You Build
-1. ✅ Jenkins pulls your code from Git
-2. ✅ Installs npm dependencies
-3. ✅ Runs your tests
-4. ✅ Builds your application
-5. ✅ Deploys (if configured)
-6. ✅ Reports results
-
-## Next Steps
-- Add deployment scripts
-- Set up notifications (Slack/email)
-- Configure different environments (staging/prod)
-- Add code coverage reports
-
----
-**Need help?** Check Jenkins console output for detailed error messages.
+![bs](./assets/buildsuccess.png)
 
 # Challenge: Troubleshooting
 
@@ -181,3 +78,13 @@ your-project/
 
 **Made changes in the pipeline script.**
 ![e2](./assets/e2.png)
+
+## Key Takeaways
+
+Multi-Stage Pipeline: Built complete Jenkins pipeline with checkout, build, test, and deploy stages
+
+Test Integration: Configured automated testing with coverage reports in Jenkins dashboard
+
+Git Automation: Set up automatic builds triggered by code commits
+
+Problem Solving: Learned to fix common Jenkins setup and configuration errors
