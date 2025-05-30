@@ -33,11 +33,11 @@ To implement Continuous Integration and Delivery (CI/CD) using Jenkins by settin
 2. Configure:
    - Pipeline Definition: "Pipeline script from SCM"
    - SCM: Git
-   - Repository URL: Your Git repo URL
+   - Repository URL: Git repo URL
    - Script Path: `Jenkinsfile`
 
 ### Step 4: Create Jenkinsfile
-Created `Jenkinsfile` in your project root:
+Created `Jenkinsfile` in project root:
 ![jf](./assets/jenkinsfile.png)
 
 ### Step 5: Configured Multi-Phase Pipeline: Jenkinsfile
