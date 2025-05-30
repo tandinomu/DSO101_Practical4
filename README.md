@@ -63,15 +63,13 @@ Delivery: Staging environment deployment mock
 
 ![e1](./assets/challenge.png)
 
-**Fix this error.**
+**Fixed the error.**
 
 - Updated to the matched available version.
 
 ![rb](./assets/e1.png)
 
 ## Error 2: Script Path Issues
-
-![e2](./assets/e2.png)
 
 **Console Output:**
 ![co2](./assets/co2.png)
